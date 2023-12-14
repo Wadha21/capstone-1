@@ -30,7 +30,7 @@ class NerestHospital extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: state.hospitalsData!.length,
             itemBuilder: (context, index) {
-              print('$state.hospitalsData!============================');
+            
               LocationModel location = state.hospitalsData![index];
               return InkWell(
                 onTap: () async {

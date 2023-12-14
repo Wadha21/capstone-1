@@ -10,14 +10,11 @@ class SupabaseServer {
   final supabase = Supabase.instance.client;
 
   getHospitalData() async {
-    print("i am here 1");
     final hospitalData = await supabase.from("hospitals").select();
-    print("i am here 2");
 
     for (var element in hospitalData) {
       allHospetal.add(LocationModel.fromJson(element));
     }
-    print("i am here 3");
 
     return allHospetal;
   }
@@ -54,5 +51,19 @@ class SupabaseServer {
 
   deleteSymptom({required int id}) async {
     await supabase.from("symptoms").delete().eq('id', id);
+  }
+}
+
+Future<UserModel?> getUserProfile() async {
+  try {
+    final supabase = SupabaseNetworking().getSupabase;
+    await Future.delayed(const Duration(seconds: 2));
+    final userProfile = await supabase
+        .from("users")
+        .select()
+        .eq("id_auth", supabase.auth.currentUser!.id);
+    return UserModel.fromJson(userProfile[0]);
+  } catch (t) {
+    return null;
   }
 }

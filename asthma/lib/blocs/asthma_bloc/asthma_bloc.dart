@@ -36,14 +36,14 @@ class AsthmaBloc extends Bloc<AsthmaEvent, AsthmaState> {
       emit(LoadingState());
 
       hospitalData = await SupabaseServer().getHospitalData();
-      print('1');
+   
       if (hospitalData != null) {
-        print('2');
+      
         for (var location in hospitalData!) {
           Position position = await Geolocator.getCurrentPosition(
               desiredAccuracy: LocationAccuracy.high);
           currentLocation = position;
-          print(currentLocation);
+         
 
           double distance = Geolocator.distanceBetween(
             currentLocation!.latitude,
@@ -52,7 +52,7 @@ class AsthmaBloc extends Bloc<AsthmaEvent, AsthmaState> {
             location.longitude!,
           );
 
-          print('4');
+         
           location.distance = distance;
           nearestLocations.add(location);
         }
@@ -125,7 +125,7 @@ class AsthmaBloc extends Bloc<AsthmaEvent, AsthmaState> {
           "days": event.days,
           "date": event.date,
         });
-        
+
         emit(SuccessAddMedicationState(message: 'Medication Added'));
         add(GetMedicationDataEvent());
       } else {

@@ -33,10 +33,10 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
           .from("tasks")
           .select()
           .eq("id_user", getCurrentUserId);
-      print(getCurrentUserId);
+    
       final List<TaskModel> tasks =
           allTasks.map((task) => TaskModel.fromJson(task)).toList();
-      print(tasks);
+  
       emit(getTaskState(tasks: tasks));
     } catch (e) {
       print(e);

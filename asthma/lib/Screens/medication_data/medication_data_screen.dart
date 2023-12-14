@@ -99,9 +99,6 @@ class _MedicationTrackerScreenState extends State<MedicationTrackerScreen> {
                       if (newState is SuccessGetMedicationState) {
                         return true;
                       }
-                      // if (newState is LoadingState) {
-                      //   return true;
-                      // }
                       return false;
                     },
                     builder: (context, state) {

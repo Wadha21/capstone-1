@@ -30,7 +30,7 @@ class ChatScreen extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final List<MessageModel> messages = snapshot.data!;
-              print(messages);
+             
               ScrollController scrollController = ScrollController();
 
               Future.delayed(const Duration(milliseconds: 100 ~/ 60), () {

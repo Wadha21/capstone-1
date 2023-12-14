@@ -79,7 +79,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       }
       final count = countChats.length; 
 
-      print(count);
+    
       emit(GetNumberOfMessagesState());
     } catch (e) {
       print(e);

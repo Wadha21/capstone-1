@@ -91,11 +91,7 @@ class DrawerMainWidget extends StatelessWidget {
                 onTap: () {
                   context.read<AuthBloc>().add(LogoutEvent());
                   context.pushAndRemoveUntil(view: LoginScreen());
-                  // showDialog(
-                  //     context: context,
-                  //     builder: (context) => const Center(
-                  //           child: CircularProgressIndicator.adaptive(),
-                  //         ));
+              
                 },
                 leading: const Icon(Icons.login_outlined),
                 title: Text(AppLocalizations.of(context)!.logout),

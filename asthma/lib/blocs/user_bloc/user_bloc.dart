@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:asthma/Services/networking_api.dart';
-import 'package:asthma/Services/networking_request.dart';
+import 'package:asthma/Services/supabase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';
